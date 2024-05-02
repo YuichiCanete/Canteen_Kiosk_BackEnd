@@ -1,3 +1,9 @@
+## Cloning
+
+```
+  git clone https://github.com/YuichiCanete/Canteen_Kiosk_BackEnd.git
+```
+
 ## Back End (using miniconda)
 
 Create new db named canteen_kiosk then
