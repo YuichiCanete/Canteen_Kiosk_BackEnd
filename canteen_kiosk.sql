@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 05:20 PM
+-- Generation Time: May 05, 2024 at 04:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,27 +70,41 @@ CREATE TABLE `food_details` (
   `food_detail_id` int(11) NOT NULL,
   `name` varchar(15) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
-  `available_stock` int(11) DEFAULT NULL
+  `available_stock` int(11) DEFAULT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `food_details`
 --
 
-INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`) VALUES
-(1, 'egg', 15, 10),
-(2, 'hotdog', 15, 30),
-(3, 'siomai', 5, 50),
-(4, 'rice', 10, 97),
-(5, 'spaghetti', 60, 25),
-(6, 'cheese_stick', 5, 50),
-(7, 'lumpia', 5, 75),
-(8, 'pizza', 25, 32),
-(9, 'mentos', 5, 45),
-(10, 'pillows', 10, 0),
-(20, 'eggnog', 1, 1),
-(30, 'hello', 20, 20),
-(31, 'hello', 20, 20);
+INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`, `image`) VALUES
+(1, 'egg', 15, 10, ''),
+(2, 'hotdog', 15, 30, ''),
+(3, 'siomai', 5, 50, ''),
+(4, 'rice', 10, 97, ''),
+(5, 'spaghetti', 60, 25, ''),
+(6, 'cheese_stick', 5, 50, ''),
+(7, 'lumpia', 5, 75, ''),
+(8, 'pizza', 25, 32, ''),
+(9, 'mentos', 5, 45, ''),
+(10, 'pillows', 10, 0, ''),
+(11, 'chicken', 50, 25, ''),
+(12, 'chicken', 50, 25, ''),
+(20, 'eggnog', 1, 1, ''),
+(30, 'hello', 20, 20, ''),
+(31, 'hello', 20, 20, '');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `get_total`
+-- (See below for the actual view)
+--
+CREATE TABLE `get_total` (
+`order_id` int(11)
+,`total` decimal(42,0)
+);
 
 -- --------------------------------------------------------
 
@@ -118,6 +132,26 @@ INSERT INTO `order` (`order_id`, `user_order_id`) VALUES
 (8, 8),
 (9, 9),
 (10, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `order_preparing`
+-- (See below for the actual view)
+--
+CREATE TABLE `order_preparing` (
+`user_order_id` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `order_ready`
+-- (See below for the actual view)
+--
+CREATE TABLE `order_ready` (
+`user_order_id` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -159,7 +193,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `password`, `user_type`) VALUES
-(12345678, 'gAAAAABmLmjV6qOhMXH5-aG_jAn69qZLIuSzyFGUUnV5XPNAoeS4_Jl8VVBKG2vfJLqTfo90ItgPqZrykIvYqPli00zi2WrfIA==', 'counter'),
+(12345678, 'gAAAAABmMezvqPJsI0Q3uMHn_04WfgeA_nclabQJq9Bt0iliImpmfyvZyex8FfrOHtOaQL34JjRtTsPMZ7owTUDHVTZxvHdDZg==', 'counter'),
 (111222333, 'gAAAAABmLmi54z35JwpeANxp5xPGVS9_Wkt6zkrydfG77SXc1CUa7jkjMzgOWEglBzT_lGZ4ouCqy6ThFlx348qa6NEUOHTQ9Q==', 'admin'),
 (220000743, 'gAAAAABmLmhRdEuqOHh8UqVGZWYBWLHiYO16VhqiOnMpf0BnxQgg4LF_O53QNXqz8wPRZrlO-TvJx-x85WHGVjjreNXq9wRMtg==', 'personnel'),
 (220000744, 'gAAAAABmLmhWSI0HjEG6DxSczBJ8xZpaFJb_ls2roLgR3VwLG1Nr9R6IL4SOCvbBW-Kn0MsFbu7kTI-NEhA0O3eZ2yjXJgZY5Q==', 'personnel'),
@@ -182,25 +216,26 @@ CREATE TABLE `user_order` (
   `user_order_id` int(11) NOT NULL,
   `payment_type` varchar(11) DEFAULT NULL,
   `order_date` date DEFAULT NULL,
-  `total_price` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  `order_status` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_order`
 --
 
-INSERT INTO `user_order` (`user_order_id`, `payment_type`, `order_date`, `total_price`, `user_id`) VALUES
-(1, 'tally', '2024-03-15', 31, 220000743),
-(2, 'cash', '2024-03-15', 45, 220000744),
-(3, 'tally', '2024-03-16', 120, 220000745),
-(4, 'tally', '2024-03-17', 40, 220000746),
-(5, 'cash', '2024-03-17', 90, 220000747),
-(6, 'tally', '2024-03-18', 50, 220000750),
-(7, 'cash', '2024-03-18', 25, 220000750),
-(8, 'cash', '2024-03-18', 60, 220000751),
-(9, 'cash', '2024-03-19', 50, 220000751),
-(10, 'cash', '2024-03-19', 30, 220000751);
+INSERT INTO `user_order` (`user_order_id`, `payment_type`, `order_date`, `user_id`, `order_status`) VALUES
+(1, 'tally', '2024-03-15', 220000743, 'preparing'),
+(2, 'cash', '2024-03-15', 220000744, 'done'),
+(3, 'tally', '2024-03-16', 220000745, 'ready'),
+(4, 'tally', '2024-03-17', 220000746, 'ready'),
+(5, 'cash', '2024-03-17', 220000747, 'done'),
+(6, 'tally', '2024-03-18', 220000750, 'done'),
+(7, 'cash', '2024-03-18', 220000750, 'cancelled'),
+(8, 'cash', '2024-03-18', 220000751, 'cancelled'),
+(9, 'cash', '2024-03-19', 220000751, 'preparing'),
+(10, 'cash', '2024-03-19', 220000751, 'ready'),
+(11, 'tally', '2024-10-10', 220000743, 'preparing');
 
 -- --------------------------------------------------------
 
@@ -215,6 +250,33 @@ CREATE TABLE `view_order` (
 ,`unit_price` int(11)
 ,`quantity` int(11)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `get_total`
+--
+DROP TABLE IF EXISTS `get_total`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_total`  AS SELECT `food`.`order_id` AS `order_id`, sum(`food_details`.`price` * `food`.`quantity`) AS `total` FROM (((`food_details` join `food` on(`food_details`.`food_detail_id` = `food`.`food_detail_id`)) join `order` on(`food`.`order_id` = `order`.`order_id`)) join `user_order` on(`order`.`user_order_id` = `user_order`.`user_order_id`)) GROUP BY `food`.`order_id` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `order_preparing`
+--
+DROP TABLE IF EXISTS `order_preparing`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_preparing`  AS SELECT `user_order`.`user_order_id` AS `user_order_id` FROM `user_order` WHERE `user_order`.`order_status` = 'preparing' ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `order_ready`
+--
+DROP TABLE IF EXISTS `order_ready`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_ready`  AS SELECT `user_order`.`user_order_id` AS `user_order_id` FROM `user_order` WHERE `user_order`.`order_status` = 'ready' ;
 
 -- --------------------------------------------------------
 
@@ -269,6 +331,16 @@ ALTER TABLE `user`
 ALTER TABLE `user_order`
   ADD PRIMARY KEY (`user_order_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user_order`
+--
+ALTER TABLE `user_order`
+  MODIFY `user_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
