@@ -18,16 +18,16 @@ async def create_user(
     user_order_id: int = Form(...),
     payment_type: str = Form(...),
     order_date: date = Form(...),
-    total_price: int = Form(...),
     user_id: int = Form(...),
+    order_status: str = Form(...),
     db=Depends(get_db)
 ):
     data = {
         "user_order_id": user_order_id,
         "payment_type": payment_type,
         "order_date": order_date,
-        "total_price": total_price,
-        "user_id": user_id
+        "user_id": user_id,
+        "order_status": order_status
     }
     return await create_data("user_order", data, db=db)
 
@@ -40,15 +40,15 @@ async def update_food_detail(
     user_order_id: int,
     payment_type: str = Form(...),
     order_date: date = Form(...),
-    total_price: int = Form(...),
     user_id: int = Form(...),
+    order_status: str = Form(...),
     db=Depends(get_db)
 ):
     data = {
         "payment_type": payment_type,
         "order_date": order_date,
-        "total_price": total_price,
-        "user_id": user_id
+        "user_id": user_id,
+        "order_status": order_status
     }
     return await update_data("user_order", "user_order_id", user_order_id, data, db=db)
 
