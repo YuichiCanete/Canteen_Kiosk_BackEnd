@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2024 at 04:05 PM
+-- Generation Time: May 05, 2024 at 05:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -79,7 +79,7 @@ CREATE TABLE `food_details` (
 --
 
 INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`, `image`) VALUES
-(1, 'egg', 15, 10, ''),
+(1, 'egg', 10, 50, ''),
 (2, 'hotdog', 15, 30, ''),
 (3, 'siomai', 5, 50, ''),
 (4, 'rice', 10, 97, ''),
@@ -94,6 +94,19 @@ INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`
 (20, 'eggnog', 1, 1, ''),
 (30, 'hello', 20, 20, ''),
 (31, 'hello', 20, 20, '');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `get_tallies`
+-- (See below for the actual view)
+--
+CREATE TABLE `get_tallies` (
+`tally_id` int(11)
+,`user_id` int(11)
+,`salary_period` date
+,`tally_status` varchar(11)
+);
 
 -- --------------------------------------------------------
 
@@ -225,7 +238,7 @@ CREATE TABLE `user_order` (
 --
 
 INSERT INTO `user_order` (`user_order_id`, `payment_type`, `order_date`, `user_id`, `order_status`) VALUES
-(1, 'tally', '2024-03-15', 220000743, 'preparing'),
+(1, 'tally', '2024-03-15', 220000743, 'done'),
 (2, 'cash', '2024-03-15', 220000744, 'done'),
 (3, 'tally', '2024-03-16', 220000745, 'ready'),
 (4, 'tally', '2024-03-17', 220000746, 'ready'),
@@ -250,6 +263,15 @@ CREATE TABLE `view_order` (
 ,`unit_price` int(11)
 ,`quantity` int(11)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `get_tallies`
+--
+DROP TABLE IF EXISTS `get_tallies`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_tallies`  AS SELECT `tally`.`tally_id` AS `tally_id`, `user_order`.`user_id` AS `user_id`, `tally`.`salary_period` AS `salary_period`, `tally`.`tally_status` AS `tally_status` FROM (`user_order` join `tally` on(`user_order`.`user_order_id` = `tally`.`user_order_id`)) WHERE `user_order`.`order_status` = 'done' ;
 
 -- --------------------------------------------------------
 

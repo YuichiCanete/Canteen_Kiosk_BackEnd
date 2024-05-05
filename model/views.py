@@ -8,6 +8,10 @@ viewsRouter = APIRouter(tags=['Views'])
 async def get_users(db=Depends(get_db)):
     return await fetch_data("order_ready",db=db)
 
+@viewsRouter.get("/get_tallies")
+async def get_users(db=Depends(get_db)):
+    return await fetch_data("get_tallies",db=db)
+
 @viewsRouter.get("/order_preparing")
 async def get_users(db=Depends(get_db)):
     return await fetch_data("order_preparing",db=db)
