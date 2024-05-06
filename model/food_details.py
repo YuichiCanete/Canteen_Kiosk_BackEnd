@@ -14,17 +14,17 @@ async def get_user_by_id(food_detail_id: int,db=Depends(get_db)):
 
 @foodDetailsRouter.post("/food_details/", response_model=dict)
 async def create_user(
-    food_detail_id: int = Form(...),
     name: str = Form(...),
     price: int = Form(...),
     available_stock: int = Form(...),
+    image: str = Form(...),
     db=Depends(get_db)
 ):
     data = {
-        "food_detail_id": food_detail_id,
         "name": name,
         "price": price,
-        "available_stock": available_stock
+        "available_stock": available_stock,
+        "image": image
     }
     return await create_data("food_details", data, db=db)
 
@@ -38,12 +38,14 @@ async def update_food_detail(
     name: str = Form(...),
     price: int = Form(...),
     available_stock: int = Form(...),
+    image: str = Form(...),
     db=Depends(get_db)
 ):
     data = {
         "name": name,
         "price": price,
-        "available_stock": available_stock
+        "available_stock": available_stock,
+        "image": image
     }
     return await update_data("food_details", "food_detail_id", food_detail_id, data, db=db)
 
