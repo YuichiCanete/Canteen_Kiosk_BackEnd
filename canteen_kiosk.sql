@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2024 at 05:53 PM
+-- Generation Time: May 07, 2024 at 03:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`food_id`, `quantity`, `order_id`, `food_detail_id`) VALUES
-(1, 2, 1, 1),
+(1, 3, 1, 1),
 (2, 1, 1, 4),
 (3, 1, 2, 1),
 (4, 1, 2, 2),
@@ -79,21 +79,19 @@ CREATE TABLE `food_details` (
 --
 
 INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`, `image`) VALUES
-(1, 'egg', 10, 50, ''),
-(2, 'hotdog', 15, 30, ''),
-(3, 'siomai', 5, 50, ''),
-(4, 'rice', 10, 97, ''),
-(5, 'spaghetti', 60, 25, ''),
-(6, 'cheese_stick', 5, 50, ''),
-(7, 'lumpia', 5, 75, ''),
-(8, 'pizza', 25, 32, ''),
-(9, 'mentos', 5, 45, ''),
-(10, 'pillows', 10, 0, ''),
-(11, 'chicken', 50, 25, ''),
-(12, 'chicken', 50, 25, ''),
-(20, 'eggnog', 1, 1, ''),
-(30, 'hello', 20, 20, ''),
-(31, 'hello', 20, 20, '');
+(1, 'egg', 10, 50, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQuDOcn0KamvCoSWJB3Qnsw6CtIDTMvEUUKOTDyjBKg&s'),
+(2, 'hotdog', 15, 30, 'https://pampangasbest.store/cdn/shop/products/TASTY-MEATY-HOTDOG-WITH-CHEESE-JUMBO-500G-2.jpg?v=1705019883'),
+(3, 'siomai', 5, 50, 'https://panlasangpinoy.com/wp-content/uploads/2020/01/pork-siomai.jpg'),
+(4, 'rice', 10, 97, 'https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg'),
+(5, 'spaghetti', 60, 25, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAa-8aSmUOI_A1r6OjtNzIe82FwKvsO4lhQrblBdBJSg&s'),
+(6, 'cheese_stick', 5, 50, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8WSAIxx_87Sb-aZMgxu2i74QAu3AUm78eeKA3Zdrp2w&s'),
+(7, 'lumpia', 5, 75, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtkDgVWv8TUncdCwxjA_pCK1JNFTYvJnWGpUlrcfwbhg&s'),
+(8, 'pizza', 25, 32, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkWy7zWA1uCUJhUEryYZfZp5u5-diPrz1TWNN7tNenTA&s'),
+(9, 'mentos', 5, 45, 'https://d2t3trus7wwxyy.cloudfront.net/catalog/product/m/e/mentos-fruit-roll-378g_2.jpg'),
+(10, 'pillows', 10, 0, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3m_4r06_Z2toqTNWVydCEKTsrxETVmo5iyfU_FBbwNA&s'),
+(35, 'pancit canton', 20, 50, 'https://www.luckyme.ph/img/products/webp/2023_0418_LuckyMe_EHC_75g_Mockup_1stPass.webp'),
+(36, 'noodles', 30, 10, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/1200px-Mama_instant_noodle_block.jpg'),
+(37, 'noodol', 20, 20, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/1200px-Mama_instant_noodle_block.jpg');
 
 -- --------------------------------------------------------
 
@@ -102,9 +100,9 @@ INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`
 -- (See below for the actual view)
 --
 CREATE TABLE `get_tallies` (
-`tally_id` int(11)
-,`user_id` int(11)
+`user_id` int(11)
 ,`salary_period` date
+,`amount` decimal(42,0)
 ,`tally_status` varchar(11)
 );
 
@@ -271,7 +269,7 @@ CREATE TABLE `view_order` (
 --
 DROP TABLE IF EXISTS `get_tallies`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_tallies`  AS SELECT `tally`.`tally_id` AS `tally_id`, `user_order`.`user_id` AS `user_id`, `tally`.`salary_period` AS `salary_period`, `tally`.`tally_status` AS `tally_status` FROM (`user_order` join `tally` on(`user_order`.`user_order_id` = `tally`.`user_order_id`)) WHERE `user_order`.`order_status` = 'done' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_tallies`  AS SELECT `user_order`.`user_id` AS `user_id`, `tally`.`salary_period` AS `salary_period`, sum(`food`.`quantity` * `food_details`.`price`) AS `amount`, `tally`.`tally_status` AS `tally_status` FROM ((((`food` join `food_details` on(`food`.`food_detail_id` = `food_details`.`food_detail_id`)) join `order` on(`food`.`order_id` = `order`.`order_id`)) join `user_order` on(`order`.`user_order_id` = `user_order`.`user_order_id`)) join `tally` on(`order`.`user_order_id` = `tally`.`user_order_id`)) WHERE `user_order`.`payment_type` = 'tally' GROUP BY `user_order`.`user_id` ;
 
 -- --------------------------------------------------------
 
@@ -357,6 +355,18 @@ ALTER TABLE `user_order`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `food`
+--
+ALTER TABLE `food`
+  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `food_details`
+--
+ALTER TABLE `food_details`
+  MODIFY `food_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user_order`
