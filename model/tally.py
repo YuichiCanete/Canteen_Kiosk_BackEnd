@@ -15,14 +15,12 @@ async def get_user_by_id(tally_id: int,db=Depends(get_db)):
 
 @tallyRouter.post("/tally/", response_model=dict)
 async def create_user(
-    tally_id: int = Form(...),
     tally_status: str = Form(...),
     salary_period: date = Form(...),
     user_order_id: int = Form(...),
     db=Depends(get_db)
 ):
     data = {
-        "tally_id": tally_id,
         "tally_status": tally_status,
         "salary_period": salary_period,
         "user_order_id": user_order_id

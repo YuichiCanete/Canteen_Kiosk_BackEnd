@@ -14,14 +14,12 @@ async def get_user_by_id(food_id: int,db=Depends(get_db)):
 
 @foodRouter.post("/food/", response_model=dict)
 async def create_user(
-    food_id: int = Form(...),
     quantity: int = Form(...),
     order_id: int = Form(...),
     food_detail_id: int = Form(...),
     db=Depends(get_db)
 ):
     data = {
-        "food_id": food_id,
         "quantity": quantity,
         "order_id": order_id,
         "food_detail_id": food_detail_id
