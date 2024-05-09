@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2024 at 03:55 PM
+-- Generation Time: May 09, 2024 at 03:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,7 +58,8 @@ INSERT INTO `food` (`food_id`, `quantity`, `order_id`, `food_detail_id`) VALUES
 (17, 2, 9, 1),
 (18, 1, 9, 2),
 (19, 3, 9, 3),
-(20, 3, 10, 4);
+(20, 3, 10, 4),
+(21, 10, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -79,12 +80,12 @@ CREATE TABLE `food_details` (
 --
 
 INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`, `image`) VALUES
-(1, 'egg', 10, 50, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQuDOcn0KamvCoSWJB3Qnsw6CtIDTMvEUUKOTDyjBKg&s'),
-(2, 'hotdog', 15, 30, 'https://pampangasbest.store/cdn/shop/products/TASTY-MEATY-HOTDOG-WITH-CHEESE-JUMBO-500G-2.jpg?v=1705019883'),
-(3, 'siomai', 5, 50, 'https://panlasangpinoy.com/wp-content/uploads/2020/01/pork-siomai.jpg'),
-(4, 'rice', 10, 97, 'https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg'),
+(1, 'egg', 10, 10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQuDOcn0KamvCoSWJB3Qnsw6CtIDTMvEUUKOTDyjBKg&s'),
+(2, 'hotdog', 15, 25, 'https://pampangasbest.store/cdn/shop/products/TASTY-MEATY-HOTDOG-WITH-CHEESE-JUMBO-500G-2.jpg?v=1705019883'),
+(3, 'siomai', 5, 40, 'https://panlasangpinoy.com/wp-content/uploads/2020/01/pork-siomai.jpg'),
+(4, 'rice', 10, 90, 'https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg'),
 (5, 'spaghetti', 60, 25, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAa-8aSmUOI_A1r6OjtNzIe82FwKvsO4lhQrblBdBJSg&s'),
-(6, 'cheese_stick', 5, 50, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8WSAIxx_87Sb-aZMgxu2i74QAu3AUm78eeKA3Zdrp2w&s'),
+(6, 'cheese_stick', 5, 40, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8WSAIxx_87Sb-aZMgxu2i74QAu3AUm78eeKA3Zdrp2w&s'),
 (7, 'lumpia', 5, 75, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtkDgVWv8TUncdCwxjA_pCK1JNFTYvJnWGpUlrcfwbhg&s'),
 (8, 'pizza', 25, 32, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkWy7zWA1uCUJhUEryYZfZp5u5-diPrz1TWNN7tNenTA&s'),
 (9, 'mentos', 5, 45, 'https://d2t3trus7wwxyy.cloudfront.net/catalog/product/m/e/mentos-fruit-roll-378g_2.jpg'),
@@ -185,7 +186,8 @@ INSERT INTO `tally` (`tally_id`, `tally_status`, `salary_period`, `user_order_id
 (1, 'paid', '2024-03-01', 1),
 (2, 'unpaid', '2024-04-01', 3),
 (3, 'unpaid', '2024-04-01', 4),
-(4, 'paid', '2024-05-01', 6);
+(4, 'paid', '2024-05-01', 6),
+(5, 'unpaid', '2023-10-10', 1);
 
 -- --------------------------------------------------------
 
@@ -206,6 +208,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `password`, `user_type`) VALUES
 (12345678, 'gAAAAABmMezvqPJsI0Q3uMHn_04WfgeA_nclabQJq9Bt0iliImpmfyvZyex8FfrOHtOaQL34JjRtTsPMZ7owTUDHVTZxvHdDZg==', 'counter'),
 (111222333, 'gAAAAABmLmi54z35JwpeANxp5xPGVS9_Wkt6zkrydfG77SXc1CUa7jkjMzgOWEglBzT_lGZ4ouCqy6ThFlx348qa6NEUOHTQ9Q==', 'admin'),
+(220000000, 'gAAAAABmO3Qst16zd2ePE0BbUqh6uFggQUrvcSNmwYazWLVPIYAcgBNXMUAaMtVeUjtU2slFe1CoTLNGwXxHOPNDYVip0Mr3HQ==', 'student'),
 (220000743, 'gAAAAABmLmhRdEuqOHh8UqVGZWYBWLHiYO16VhqiOnMpf0BnxQgg4LF_O53QNXqz8wPRZrlO-TvJx-x85WHGVjjreNXq9wRMtg==', 'personnel'),
 (220000744, 'gAAAAABmLmhWSI0HjEG6DxSczBJ8xZpaFJb_ls2roLgR3VwLG1Nr9R6IL4SOCvbBW-Kn0MsFbu7kTI-NEhA0O3eZ2yjXJgZY5Q==', 'personnel'),
 (220000745, 'gAAAAABmLmhYoFLT2HnLPJNAVN50X32NI5De_H6Ga9IteHfTiZV-ymzU2oYaLJQckBqgR-2Fai5jB3lsHqeSx14cUMuk7J0KxQ==', 'personnel'),
@@ -245,8 +248,7 @@ INSERT INTO `user_order` (`user_order_id`, `payment_type`, `order_date`, `user_i
 (7, 'cash', '2024-03-18', 220000750, 'cancelled'),
 (8, 'cash', '2024-03-18', 220000751, 'cancelled'),
 (9, 'cash', '2024-03-19', 220000751, 'preparing'),
-(10, 'cash', '2024-03-19', 220000751, 'ready'),
-(11, 'tally', '2024-10-10', 220000743, 'preparing');
+(10, 'cash', '2024-03-19', 220000751, 'ready');
 
 -- --------------------------------------------------------
 
@@ -360,7 +362,7 @@ ALTER TABLE `user_order`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `food_details`
@@ -369,10 +371,16 @@ ALTER TABLE `food_details`
   MODIFY `food_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
+-- AUTO_INCREMENT for table `tally`
+--
+ALTER TABLE `tally`
+  MODIFY `tally_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `user_order`
 --
 ALTER TABLE `user_order`
-  MODIFY `user_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Constraints for dumped tables
@@ -382,26 +390,26 @@ ALTER TABLE `user_order`
 -- Constraints for table `food`
 --
 ALTER TABLE `food`
-  ADD CONSTRAINT `food_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
-  ADD CONSTRAINT `food_ibfk_2` FOREIGN KEY (`food_detail_id`) REFERENCES `food_details` (`food_detail_id`);
+  ADD CONSTRAINT `food_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `food_ibfk_2` FOREIGN KEY (`food_detail_id`) REFERENCES `food_details` (`food_detail_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_order_id`) REFERENCES `user_order` (`user_order_id`);
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_order_id`) REFERENCES `user_order` (`user_order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tally`
 --
 ALTER TABLE `tally`
-  ADD CONSTRAINT `tally_ibfk_1` FOREIGN KEY (`user_order_id`) REFERENCES `user_order` (`user_order_id`);
+  ADD CONSTRAINT `tally_ibfk_1` FOREIGN KEY (`user_order_id`) REFERENCES `user_order` (`user_order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_order`
 --
 ALTER TABLE `user_order`
-  ADD CONSTRAINT `user_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `user_order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
