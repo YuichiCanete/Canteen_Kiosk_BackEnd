@@ -44,3 +44,18 @@ async def update_food_detail(
         "food_detail_id": food_detail_id
     }
     return await update_data("food", "food_id", food_id, data, db=db)
+
+@foodRouter.put("/food/by_order/{order_id}", response_model=dict)
+async def update_food_detail(
+    order_id: int,
+    quantity: int = Form(...),
+    food_id: int = Form(...),
+    food_detail_id: int = Form(...),
+    db=Depends(get_db)
+):
+    data = {
+        "food_id": food_id,
+        "quantity": quantity,
+        "food_detail_id": food_detail_id
+    }
+    return await update_data("food", "order_id", order_id, data, db=db)
