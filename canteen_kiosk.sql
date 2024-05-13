@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 03:04 PM
+-- Generation Time: May 13, 2024 at 04:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,27 +39,61 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`food_id`, `quantity`, `order_id`, `food_detail_id`) VALUES
-(1, 3, 1, 1),
-(2, 1, 1, 4),
-(3, 1, 2, 1),
-(4, 1, 2, 2),
-(5, 2, 2, 4),
-(6, 2, 3, 5),
-(7, 4, 4, 3),
-(8, 2, 4, 4),
-(9, 1, 5, 2),
-(10, 1, 5, 5),
-(11, 5, 6, 6),
-(12, 5, 6, 7),
-(13, 1, 7, 8),
-(14, 1, 8, 8),
-(15, 2, 8, 9),
-(16, 1, 8, 10),
-(17, 2, 9, 1),
-(18, 1, 9, 2),
-(19, 3, 9, 3),
-(20, 3, 10, 4),
-(21, 10, 1, 1);
+(69, 2, 57, 1),
+(70, 0, 57, 2),
+(71, 0, 57, 3),
+(72, 2, 57, 4),
+(73, 0, 57, 5),
+(74, 0, 57, 6),
+(75, 0, 57, 7),
+(76, 0, 57, 8),
+(77, 0, 57, 9),
+(78, 0, 57, 10),
+(79, 0, 57, 35),
+(80, 4, 58, 1),
+(81, 0, 58, 2),
+(82, 5, 58, 3),
+(83, 2, 58, 4),
+(84, 0, 58, 5),
+(85, 0, 58, 6),
+(86, 0, 58, 7),
+(87, 0, 58, 8),
+(88, 0, 58, 9),
+(89, 0, 58, 10),
+(90, 0, 58, 35),
+(91, 5, 59, 1),
+(92, 4, 59, 2),
+(93, 0, 59, 3),
+(94, 0, 59, 4),
+(95, 5, 59, 5),
+(96, 0, 59, 6),
+(97, 0, 59, 7),
+(98, 0, 59, 8),
+(99, 0, 59, 9),
+(100, 0, 59, 10),
+(101, 0, 59, 35),
+(102, 5, 60, 1),
+(103, 0, 60, 2),
+(104, 5, 60, 3),
+(105, 6, 60, 4),
+(106, 0, 60, 5),
+(107, 0, 60, 6),
+(108, 0, 60, 7),
+(109, 0, 60, 8),
+(110, 0, 60, 9),
+(111, 0, 60, 10),
+(112, 0, 60, 35),
+(113, 0, 61, 1),
+(114, 0, 61, 2),
+(115, 0, 61, 3),
+(116, 0, 61, 4),
+(117, 0, 61, 5),
+(118, 0, 61, 6),
+(119, 0, 61, 7),
+(120, 2, 61, 8),
+(121, 0, 61, 9),
+(122, 0, 61, 10),
+(123, 0, 61, 35);
 
 -- --------------------------------------------------------
 
@@ -80,19 +114,17 @@ CREATE TABLE `food_details` (
 --
 
 INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`, `image`) VALUES
-(1, 'egg', 10, 10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQuDOcn0KamvCoSWJB3Qnsw6CtIDTMvEUUKOTDyjBKg&s'),
-(2, 'hotdog', 15, 25, 'https://pampangasbest.store/cdn/shop/products/TASTY-MEATY-HOTDOG-WITH-CHEESE-JUMBO-500G-2.jpg?v=1705019883'),
-(3, 'siomai', 5, 40, 'https://panlasangpinoy.com/wp-content/uploads/2020/01/pork-siomai.jpg'),
-(4, 'rice', 10, 90, 'https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg'),
-(5, 'spaghetti', 60, 25, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAa-8aSmUOI_A1r6OjtNzIe82FwKvsO4lhQrblBdBJSg&s'),
-(6, 'cheese_stick', 5, 40, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8WSAIxx_87Sb-aZMgxu2i74QAu3AUm78eeKA3Zdrp2w&s'),
-(7, 'lumpia', 5, 75, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtkDgVWv8TUncdCwxjA_pCK1JNFTYvJnWGpUlrcfwbhg&s'),
-(8, 'pizza', 25, 32, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkWy7zWA1uCUJhUEryYZfZp5u5-diPrz1TWNN7tNenTA&s'),
-(9, 'mentos', 5, 45, 'https://d2t3trus7wwxyy.cloudfront.net/catalog/product/m/e/mentos-fruit-roll-378g_2.jpg'),
+(1, 'Eggy', 15, 10, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQuDOcn0KamvCoSWJB3Qnsw6CtIDTMvEUUKOTDyjBKg&s'),
+(2, 'Hotdog', 15, 15, 'https://pampangasbest.store/cdn/shop/products/TASTY-MEATY-HOTDOG-WITH-CHEESE-JUMBO-500G-2.jpg?v=1705019883'),
+(3, 'Siomai', 5, 20, 'https://panlasangpinoy.com/wp-content/uploads/2020/01/pork-siomai.jpg'),
+(4, 'Rice', 10, 80, 'https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg'),
+(5, 'Spaghetti', 60, 20, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAa-8aSmUOI_A1r6OjtNzIe82FwKvsO4lhQrblBdBJSg&s'),
+(6, 'Cheese Stick', 5, 40, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8WSAIxx_87Sb-aZMgxu2i74QAu3AUm78eeKA3Zdrp2w&s'),
+(7, 'Lumpia', 5, 75, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtkDgVWv8TUncdCwxjA_pCK1JNFTYvJnWGpUlrcfwbhg&s'),
+(8, 'Pizza', 25, 30, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkWy7zWA1uCUJhUEryYZfZp5u5-diPrz1TWNN7tNenTA&s'),
+(9, 'Mentos', 5, 45, 'https://d2t3trus7wwxyy.cloudfront.net/catalog/product/m/e/mentos-fruit-roll-378g_2.jpg'),
 (10, 'pillows', 10, 0, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3m_4r06_Z2toqTNWVydCEKTsrxETVmo5iyfU_FBbwNA&s'),
-(35, 'pancit canton', 20, 50, 'https://www.luckyme.ph/img/products/webp/2023_0418_LuckyMe_EHC_75g_Mockup_1stPass.webp'),
-(36, 'noodles', 30, 10, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/1200px-Mama_instant_noodle_block.jpg'),
-(37, 'noodol', 20, 20, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mama_instant_noodle_block.jpg/1200px-Mama_instant_noodle_block.jpg');
+(35, 'Pancit canton', 20, 50, 'https://www.luckyme.ph/img/products/webp/2023_0418_LuckyMe_EHC_75g_Mockup_1stPass.webp');
 
 -- --------------------------------------------------------
 
@@ -101,7 +133,9 @@ INSERT INTO `food_details` (`food_detail_id`, `name`, `price`, `available_stock`
 -- (See below for the actual view)
 --
 CREATE TABLE `get_tallies` (
-`user_id` int(11)
+`user_order_id` int(11)
+,`tally_id` int(11)
+,`user_id` int(11)
 ,`salary_period` date
 ,`amount` decimal(42,0)
 ,`tally_status` varchar(11)
@@ -134,16 +168,11 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`order_id`, `user_order_id`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+(57, 57),
+(58, 58),
+(59, 59),
+(60, 60),
+(61, 61);
 
 -- --------------------------------------------------------
 
@@ -183,11 +212,8 @@ CREATE TABLE `tally` (
 --
 
 INSERT INTO `tally` (`tally_id`, `tally_status`, `salary_period`, `user_order_id`) VALUES
-(1, 'paid', '2024-03-01', 1),
-(2, 'unpaid', '2024-04-01', 3),
-(3, 'unpaid', '2024-04-01', 4),
-(4, 'paid', '2024-05-01', 6),
-(5, 'unpaid', '2023-10-10', 1);
+(7, 'unpaid', '2024-05-13', 58),
+(8, 'unpaid', '2024-05-13', 59);
 
 -- --------------------------------------------------------
 
@@ -239,16 +265,11 @@ CREATE TABLE `user_order` (
 --
 
 INSERT INTO `user_order` (`user_order_id`, `payment_type`, `order_date`, `user_id`, `order_status`) VALUES
-(1, 'tally', '2024-03-15', 220000743, 'done'),
-(2, 'cash', '2024-03-15', 220000744, 'done'),
-(3, 'tally', '2024-03-16', 220000745, 'ready'),
-(4, 'tally', '2024-03-17', 220000746, 'ready'),
-(5, 'cash', '2024-03-17', 220000747, 'done'),
-(6, 'tally', '2024-03-18', 220000750, 'done'),
-(7, 'cash', '2024-03-18', 220000750, 'cancelled'),
-(8, 'cash', '2024-03-18', 220000751, 'cancelled'),
-(9, 'cash', '2024-03-19', 220000751, 'preparing'),
-(10, 'cash', '2024-03-19', 220000751, 'ready');
+(57, 'cash', '2024-05-13', 220000000, 'ready'),
+(58, 'tally', '2024-05-13', 220000743, 'ready'),
+(59, 'tally', '2024-05-13', 220000744, 'preparing'),
+(60, 'cash', '2024-05-13', 220000743, 'preparing'),
+(61, 'cash', '2024-05-13', 220000000, 'cancelled');
 
 -- --------------------------------------------------------
 
@@ -257,7 +278,8 @@ INSERT INTO `user_order` (`user_order_id`, `payment_type`, `order_date`, `user_i
 -- (See below for the actual view)
 --
 CREATE TABLE `view_order` (
-`order_id` int(11)
+`food_details_id` int(11)
+,`order_id` int(11)
 ,`food_id` int(11)
 ,`food_name` varchar(15)
 ,`unit_price` int(11)
@@ -271,7 +293,7 @@ CREATE TABLE `view_order` (
 --
 DROP TABLE IF EXISTS `get_tallies`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_tallies`  AS SELECT `user_order`.`user_id` AS `user_id`, `tally`.`salary_period` AS `salary_period`, sum(`food`.`quantity` * `food_details`.`price`) AS `amount`, `tally`.`tally_status` AS `tally_status` FROM ((((`food` join `food_details` on(`food`.`food_detail_id` = `food_details`.`food_detail_id`)) join `order` on(`food`.`order_id` = `order`.`order_id`)) join `user_order` on(`order`.`user_order_id` = `user_order`.`user_order_id`)) join `tally` on(`order`.`user_order_id` = `tally`.`user_order_id`)) WHERE `user_order`.`payment_type` = 'tally' GROUP BY `user_order`.`user_id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `get_tallies`  AS SELECT `tally`.`user_order_id` AS `user_order_id`, `tally`.`tally_id` AS `tally_id`, `user_order`.`user_id` AS `user_id`, `tally`.`salary_period` AS `salary_period`, sum(`food`.`quantity` * `food_details`.`price`) AS `amount`, `tally`.`tally_status` AS `tally_status` FROM ((((`food` join `food_details` on(`food`.`food_detail_id` = `food_details`.`food_detail_id`)) join `order` on(`food`.`order_id` = `order`.`order_id`)) join `user_order` on(`order`.`user_order_id` = `user_order`.`user_order_id`)) join `tally` on(`order`.`user_order_id` = `tally`.`user_order_id`)) WHERE `user_order`.`payment_type` = 'tally' GROUP BY `user_order`.`user_id` ;
 
 -- --------------------------------------------------------
 
@@ -307,7 +329,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_order`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_order`  AS SELECT `f`.`order_id` AS `order_id`, `f`.`food_id` AS `food_id`, `fd`.`name` AS `food_name`, `fd`.`price` AS `unit_price`, `f`.`quantity` AS `quantity` FROM (`food` `f` join `food_details` `fd` on(`f`.`food_detail_id` = `fd`.`food_detail_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_order`  AS SELECT `f`.`food_detail_id` AS `food_details_id`, `f`.`order_id` AS `order_id`, `f`.`food_id` AS `food_id`, `fd`.`name` AS `food_name`, `fd`.`price` AS `unit_price`, `f`.`quantity` AS `quantity` FROM (`food` `f` join `food_details` `fd` on(`f`.`food_detail_id` = `fd`.`food_detail_id`)) ;
 
 --
 -- Indexes for dumped tables
@@ -362,25 +384,25 @@ ALTER TABLE `user_order`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `food_details`
 --
 ALTER TABLE `food_details`
-  MODIFY `food_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `food_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tally`
 --
 ALTER TABLE `tally`
-  MODIFY `tally_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tally_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_order`
 --
 ALTER TABLE `user_order`
-  MODIFY `user_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `user_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- Constraints for dumped tables
